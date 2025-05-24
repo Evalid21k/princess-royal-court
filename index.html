@@ -2,141 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Princess Royal Court</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Royal Court Login</title>
   <style>
     body {
       background-color: #ffe6f0;
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      color: #cc0066;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       margin: 0;
-      padding: 0;
     }
-    header {
-      background-color: #ffb6c1;
-      text-align: center;
-      padding: 20px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 3em;
-    }
-    .container {
-      max-width: 600px;
-      margin: 30px auto;
-      background: #fff0f5;
+    .login-box {
+      background-color: #fff0f5;
+      padding: 30px;
       border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 0 10px #ffa6c9;
+      box-shadow: 0 0 15px #ff99cc;
+      width: 300px;
+      text-align: center;
     }
-    form label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
+    .login-box h2 {
+      margin-bottom: 20px;
     }
-    form textarea, form input, form select {
+    .login-box input {
       width: 100%;
       padding: 10px;
-      margin-top: 5px;
-      border-radius: 8px;
+      margin: 10px 0;
       border: 1px solid #ff99cc;
+      border-radius: 8px;
     }
-    form button {
-      margin-top: 20px;
+    .login-box button {
       background-color: #ff69b4;
       color: white;
-      padding: 10px 20px;
       border: none;
+      padding: 10px 15px;
       border-radius: 10px;
       cursor: pointer;
       font-size: 1em;
     }
-    .dog-pics {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      margin: 30px auto;
-      max-width: 800px;
-    }
-    .dog-pics img {
-      width: 30%;
-      border-radius: 15px;
-      box-shadow: 0 0 8px #ff99cc;
-      margin-bottom: 20px;
-      animation: sparkle 2s ease-in-out infinite alternate;
-    }
-    @keyframes sparkle {
-      from { filter: brightness(1); }
-      to { filter: brightness(1.2); }
-    }
-    @media (max-width: 768px) {
-      .dog-pics img {
-        width: 80%;
-      }
-      .container {
-        margin: 15px;
-        padding: 15px;
-      }
-    }
   </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const form = document.getElementById("complaint-form");
-      form.addEventListener("submit", async function (event) {
-        event.preventDefault();
-
-        const formData = new FormData(form);
-
-        try {
-          const response = await fetch("https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec", {
-            method: "POST",
-            body: formData
-          });
-
-          if (response.ok) {
-            alert("Your message has been sent to the royal court! 🏰");
-            form.reset();
-          } else {
-            alert("Something went wrong. Try again later!");
-          }
-        } catch (error) {
-          alert("Could not connect to the royal database! ⚠️");
-        }
-      });
-    });
-  </script>
 </head>
 <body>
-  <header>
-    <h1>Princess Royal Court</h1>
-    <p>Welcome to the royal complaint box</p>
-  </header>
-  <div class="container">
-    <form id="complaint-form">
-      <label for="name">Your Name:</label>
-      <input type="text" id="name" name="name" required />
-
-      <label for="feeling">How are you feeling today?</label>
-      <select id="feeling" name="feeling">
-        <option>Happy</option>
-        <option>Sad</option>
-        <option>Angry</option>
-        <option>Excited</option>
-        <option>Meh</option>
-      </select>
-
-      <label for="complaint">What would you like to complain about?</label>
-      <textarea id="complaint" name="complaint" rows="5" placeholder="Speak now, royal subject..."></textarea>
-
-      <button type="submit">Submit to the Court</button>
-    </form>
+  <div class="login-box">
+    <h2>Royal Court Login</h2>
+    <input type="text" id="username" placeholder="Username" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button onclick="login()">Enter the Court</button>
   </div>
 
-  <div class="dog-pics">
-    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1368355536877129949/a0ad8b621a465b553cad64af8acf41ad.jpg" alt="Dog 1">
-    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1373034626494501024/IMG_1947.jpg" alt="Dog 2">
-    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1372738313630515330/IMG_7658.jpg" alt="Dog 3">
-    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1372737642713841866/IMG_4435.jpg" alt="Dog 4">
-  </div>
+  <script>
+    function login() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
+
+      // Replace with your actual credentials
+      if (username === "princess" && password === "royal123") {
+        // Save login to session storage and redirect
+        sessionStorage.setItem("loggedIn", "true");
+        window.location.href = "complaint.html";
+      } else {
+        alert("Wrong credentials, please try again.");
+      }
+    }
+  </script>
 </body>
 </html>
