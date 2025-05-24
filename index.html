@@ -12,18 +12,15 @@
       margin: 0;
       padding: 0;
     }
-
     header {
       background-color: #ffb6c1;
       text-align: center;
       padding: 20px;
     }
-
     header h1 {
       margin: 0;
       font-size: 3em;
     }
-
     .container {
       max-width: 600px;
       margin: 30px auto;
@@ -32,24 +29,18 @@
       padding: 20px;
       box-shadow: 0 0 10px #ffa6c9;
     }
-
     form label {
       display: block;
       margin-top: 15px;
       font-weight: bold;
     }
-
-    form textarea,
-    form input,
-    form select {
+    form textarea, form input, form select {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
       border-radius: 8px;
       border: 1px solid #ff99cc;
-      box-sizing: border-box;
     }
-
     form button {
       margin-top: 20px;
       background-color: #ff69b4;
@@ -60,16 +51,13 @@
       cursor: pointer;
       font-size: 1em;
     }
-
     .dog-pics {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
       margin: 30px auto;
       max-width: 800px;
-      padding: 0 10px;
     }
-
     .dog-pics img {
       width: 30%;
       border-radius: 15px;
@@ -77,34 +65,52 @@
       margin-bottom: 20px;
       animation: sparkle 2s ease-in-out infinite alternate;
     }
-
     @keyframes sparkle {
-      from {
-        filter: brightness(1);
-      }
-      to {
-        filter: brightness(1.2);
-      }
+      from { filter: brightness(1); }
+      to { filter: brightness(1.2); }
     }
-
     @media (max-width: 768px) {
       .dog-pics img {
         width: 80%;
       }
-
       .container {
         margin: 15px;
         padding: 15px;
       }
     }
   </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("complaint-form");
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch("https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec", {
+            method: "POST",
+            body: formData
+          });
+
+          if (response.ok) {
+            alert("Your message has been sent to the royal court! 🏰");
+            form.reset();
+          } else {
+            alert("Something went wrong. Try again later!");
+          }
+        } catch (error) {
+          alert("Could not connect to the royal database! ⚠️");
+        }
+      });
+    });
+  </script>
 </head>
 <body>
   <header>
     <h1>Princess Royal Court</h1>
     <p>Welcome to the royal complaint box</p>
   </header>
-
   <div class="container">
     <form id="complaint-form">
       <label for="name">Your Name:</label>
@@ -120,57 +126,17 @@
       </select>
 
       <label for="complaint">What would you like to complain about?</label>
-      <textarea
-        id="complaint"
-        name="complaint"
-        rows="5"
-        placeholder="Speak now, royal subject..."
-      ></textarea>
+      <textarea id="complaint" name="complaint" rows="5" placeholder="Speak now, royal subject..."></textarea>
 
       <button type="submit">Submit to the Court</button>
     </form>
   </div>
 
   <div class="dog-pics">
-    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1368355536877129949/a0ad8b621a465b553cad64af8acf41ad.jpg" alt="Playful puppy" />
-    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1373034626494501024/IMG_1947.jpg" alt="Sleepy dog" />
-    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1372738313630515330/IMG_7658.jpg" alt="Happy corgi" />
-    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1372737642713841866/IMG_4435.jpg" alt="Curious pup" />
+    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1368355536877129949/a0ad8b621a465b553cad64af8acf41ad.jpg" alt="Dog 1">
+    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1373034626494501024/IMG_1947.jpg" alt="Dog 2">
+    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1372738313630515330/IMG_7658.jpg" alt="Dog 3">
+    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1372737642713841866/IMG_4435.jpg" alt="Dog 4">
   </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const form = document.getElementById("complaint-form");
-      form.addEventListener("submit", async function (event) {
-        event.preventDefault();
-
-        const name = document.getElementById("name").value;
-        const feeling = document.getElementById("feeling").value;
-        const complaint = document.getElementById("complaint").value;
-
-        const data = new FormData();
-        data.append("name", name);
-        data.append("feeling", feeling);
-        data.append("complaint", complaint);
-
-        try {
-          const response = await fetch("https://script.google.com/macros/s/AKfycbw.../exec", {
-              method: "POST",
-              body: data
-            }
-          );
-
-          if (response.ok) {
-            alert("Your message has been sent to the royal court! 🏰");
-            form.reset();
-          } else {
-            alert("Something went wrong. Try again later!");
-          }
-        } catch (error) {
-          alert("Could not connect to the royal database! ⚠️");
-        }
-      });
-    });
-  </script>
 </body>
 </html>
