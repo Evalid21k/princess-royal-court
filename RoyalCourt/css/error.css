@@ -1,0 +1,21 @@
+﻿body {
+    background-color: #ffe6f0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #cc0066;
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+#timer {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
