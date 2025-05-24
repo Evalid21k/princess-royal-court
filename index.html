@@ -154,9 +154,7 @@
         data.append("complaint", complaint);
 
         try {
-          const response = await fetch(
-            "https://script.google.com/macros/s/AKfycbwRNn-naGj4bsmkCVDZSkajjDBSw7dnoyHnDJsp-KqtWoQ37Q-JSc_zXoEycLEd0trU/exec",
-            {
+          const response = await fetch("https://script.google.com/macros/s/AKfycbw.../exec", {
               method: "POST",
               body: data
             }
