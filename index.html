@@ -79,37 +79,15 @@
       }
     }
   </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const form = document.querySelector("form");
-      form.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        const name = document.getElementById("name").value;
-        const feeling = document.getElementById("feeling").value;
-        const complaint = document.getElementById("complaint").value;
-
-        const data = {
-          name,
-          feeling,
-          complaint,
-          timestamp: new Date().toISOString()
-        };
-
-        localStorage.setItem(`complaint-${Date.now()}`, JSON.stringify(data));
-        alert("Your message has been sent to the royal court! 🏰");
-        form.reset();
-      });
-    });
-  </script>
 </head>
 <body>
   <header>
     <h1>Princess Royal Court</h1>
     <p>Welcome to the royal complaint box</p>
   </header>
+
   <div class="container">
-    <form>
+    <form id="complaint-form">
       <label for="name">Your Name:</label>
       <input type="text" id="name" name="name" required />
 
@@ -121,55 +99,56 @@
         <option>Excited</option>
         <option>Meh</option>
       </select>
-      <script>
- <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("complaint-form");
-    form.addEventListener("submit", async function(event) {
-      event.preventDefault();
-
-      const name = document.getElementById("name").value;
-      const feeling = document.getElementById("feeling").value;
-      const complaint = document.getElementById("complaint").value;
-
-      const data = new FormData();
-      data.append("name", name);
-      data.append("feeling", feeling);
-      data.append("complaint", complaint);
-
-      try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbwRNn-naGj4bsmkCVDZSkajjDBSw7dnoyHnDJsp-KqtWoQ37Q-JSc_zXoEycLEd0trU/exec", {
-          method: "POST",
-          body: data
-        });
-
-        if (response.ok) {
-          alert("Your message has been sent to the royal court! 🏰");
-          form.reset();
-        } else {
-          alert("Something went wrong. Try again later!");
-        }
-      } catch (error) {
-        alert("Could not connect to the royal database! ⚠️");
-      }
-    });
-  });
-</script>
-    
-</script>
 
       <label for="complaint">What would you like to complain about?</label>
       <textarea id="complaint" name="complaint" rows="5" placeholder="Speak now, royal subject..."></textarea>
 
       <button type="submit">Submit to the Court</button>
-    </form>https://script.google.com/macros/s/AKfycbwRNn-naGj4bsmkCVDZSkajjDBSw7dnoyHnDJsp-KqtWoQ37Q-JSc_zXoEycLEd0trU/exec
+    </form>
   </div>
 
   <div class="dog-pics">
-    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1368355536877129949/a0ad8b621a465b553cad64af8acf41ad.jpg?ex=68290f66&is=6827bde6&hm=2f0927d718bf6f04bfb68017cda9742d2fc17da5143a7dce5927f2cca7500401&" alt="Dog 1">
-    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1373034626494501024/IMG_1947.jpg?ex=6828f1a4&is=6827a024&hm=5ef490562ebae907e9cb71be196ec76b22afd1d85dd068ab93ded6baa1babd27&" alt="Dog 1">
-    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1372738313630515330/IMG_7658.jpg?ex=6827ddae&is=68268c2e&hm=4f84932886fbb21a5a3a4b9c3235ce75bb76e75ab7facc378e91282d7ffe6492&" alt="Dog 2">
-    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1372737642713841866/IMG_4435.jpg?ex=6827dd0e&is=68268b8e&hm=c94dc69332ae523685fec0f96e683be799e501e0ca027a70ec94ec4a86195e57&" alt="Dog 3">
+    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1368355536877129949/a0ad8b621a465b553cad64af8acf41ad.jpg" alt="Playful puppy">
+    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1373034626494501024/IMG_1947.jpg" alt="Sleepy dog">
+    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1372738313630515330/IMG_7658.jpg" alt="Happy corgi">
+    <img src="https://cdn.discordapp.com/attachments/1348943523671703573/1372737642713841866/IMG_4435.jpg" alt="Curious pup">
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("complaint-form");
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const feeling = document.getElementById("feeling").value;
+        const complaint = document.getElementById("complaint").value;
+
+        const data = new FormData();
+        data.append("name", name);
+        data.append("feeling", feeling);
+        data.append("complaint", complaint);
+
+        try {
+          const response = await fetch(
+            "https://script.google.com/macros/s/AKfycbwRNn-naGj4bsmkCVDZSkajjDBSw7dnoyHnDJsp-KqtWoQ37Q-JSc_zXoEycLEd0trU/exec",
+            {
+              method: "POST",
+              body: data
+            }
+          );
+
+          if (response.ok) {
+            alert("Your message has been sent to the royal court! 🏰");
+            form.reset();
+          } else {
+            alert("Something went wrong. Try again later!");
+          }
+        } catch (error) {
+          alert("Could not connect to the royal database! ⚠️");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
