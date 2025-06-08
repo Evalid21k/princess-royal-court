@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Princess Royal Court</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(to bottom, #ffd6f6, #fff0f6);
+      color: #5e005e;
+    }
+    header {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: #ffe0f0;
+    }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #cc0099;
+      margin-bottom: 0.5rem;
+    }
+    header img {
+      width: 100px;
+      margin-bottom: 1rem;
+    }
+    nav {
+      text-align: center;
+      background-color: #ffccf2;
+      padding: 1rem;
+    }
+    nav a {
+      color: #880066;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+    section {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      color: #c10086;
+      font-size: 2rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      border: 3px solid #ffc2e8;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input, textarea, button {
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      border-radius: 10px;
+      border: 2px solid #ff99cc;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #ff66b2;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e0559d;
+    }
+    footer {
+      text-align: center;
+      background-color: #ffe6f7;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Princess_crown_icon.svg/512px-Princess_crown_icon.svg.png" alt="Princess Crown">
+    <h1>Princess Royal Court</h1>
+    <p>Where every girl shines like royalty</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#events">Events</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#apply">Join</a>
+  </nav>
+
+  <section id="about">
+    <h2>About the Court</h2>
+    <p>Welcome to the Princess Royal Court, a magical place where young girls can embrace leadership, grace, and kindness. Our mission is to inspire royalty in heart, mind, and spirit.</p>
+  </section>
+
+  <section id="events">
+    <h2>Upcoming Events</h2>
+    <p>✨ Royal Tea Party — July 15th<br>🌸 Garden Gala — August 10th<br>👑 Princess Parade — September 2nd</p>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://placekitten.com/200/200" alt="Princess moment 1" />
+      <img src="https://placekitten.com/201/200" alt="Princess moment 2" />
+      <img src="https://placekitten.com/202/200" alt="Princess moment 3" />
+      <img src="https://placekitten.com/203/200" alt="Princess moment 4" />
+    </div>
+  </section>
+
+  <section id="apply">
+    <h2>Apply to Join</h2>
+    <form>
+      <input type="text" name="name" placeholder="Your Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <textarea name="message" placeholder="Why do you want to join?" rows="4" required></textarea>
+      <button type="submit">Submit Application</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Princess Royal Court. All rights reserved.
+  </footer>
+
+</body>
+</html>
